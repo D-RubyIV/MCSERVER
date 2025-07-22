@@ -22,7 +22,17 @@ services:
     depends_on:
       minecraft-bedrock-server:
         condition: service_healthy
-
+  
+  mini-map-server:
+    build:
+      context: .
+      dockerfile: http-server/Dockerfile
+    depends_on:
+      unmined-cli:
+        condition: service_started
+      minecraft-bedrock-server:
+        condition: service_healthy
+        
 volumes:
   mc-bedrock-data-1:
   minimap:
