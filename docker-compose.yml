@@ -11,7 +11,6 @@ services:
     stdin_open: true
     tty: true
 
-
   unmined-cli:
     build:
       context: .
@@ -22,20 +21,20 @@ services:
     depends_on:
       minecraft-bedrock-server:
         condition: service_healthy
-  
+
   mini-map-server:
     build:
       context: .
       dockerfile: http-server/Dockerfile
     ports:
       - "3000:3000"
+    volumes:
+      - ./minimap-backup:/minimap
     depends_on:
       unmined-cli:
         condition: service_started
       minecraft-bedrock-server:
         condition: service_healthy
-        
+
 volumes:
   mc-bedrock-data-1:
-  minimap-backup:
-  
