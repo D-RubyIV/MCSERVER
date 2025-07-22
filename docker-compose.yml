@@ -1,15 +1,15 @@
 services:
-  # minecraft-bedrock-server:
-  #   image: itzg/minecraft-bedrock-server:2025.7.0
-  #   environment:
-  #     EULA: "TRUE"
-  #     VERSION: '1.21.95.1'
-  #   ports:
-  #     - "19132:19132/udp"
-  #   volumes:
-  #     - mc-bedrock-data:/data
-  #   stdin_open: true
-  #   tty: true
+  minecraft-bedrock-server:
+    image: itzg/minecraft-bedrock-server:2025.7.0
+    environment:
+      EULA: "TRUE"
+      VERSION: '1.21.95.1'
+    ports:
+      - "19132:19132/udp"
+    volumes:
+      - mc-bedrock-data:/data
+    stdin_open: true
+    tty: true
 
   unmined-cli:
     build:
@@ -18,9 +18,9 @@ services:
     volumes:
       - mc-bedrock-data:/data
       - ./minimap-backup:/minimap
-    # depends_on:
-    #   minecraft-bedrock-server:
-    #     condition: service_healthy
+    depends_on:
+      minecraft-bedrock-server:
+        condition: service_healthy
 
   mini-map-server:
     build:
@@ -33,8 +33,8 @@ services:
     depends_on:
       unmined-cli:
         condition: service_started
-      # minecraft-bedrock-server:
-      #   condition: service_healthy
+      minecraft-bedrock-server:
+        condition: service_healthy
 
 volumes:
   mc-bedrock-data:
