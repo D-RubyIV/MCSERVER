@@ -1,15 +1,15 @@
 version: '3.8'
 
 services:
-  itzg/minecraft-bedrock-server:
+  minecraft-bedrock-server:
     image: itzg/minecraft-bedrock-server:2025.7.0
     environment:
       EULA: "TRUE"
       VERSION: '1.21.95.1'
     ports:
-      - "19132:19132/udp"
+      - "19133:19133/udp"
     volumes:
-      - mc-bedrock-data:/data
+      - mc-bedrock-data-1:/data
     stdin_open: true
     tty: true
 
@@ -18,7 +18,7 @@ services:
       context: .
       dockerfile: unmined-cli/Dockerfile
     volumes:
-      - mc-bedrock-data:/data
+      - mc-bedrock-data-1:/data
 
 volumes:
-  mc-bedrock-data:
+  mc-bedrock-data-1:
