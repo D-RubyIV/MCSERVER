@@ -27,6 +27,8 @@ services:
     build:
       context: .
       dockerfile: http-server/Dockerfile
+    ports:
+      - "3000:3000"
     depends_on:
       unmined-cli:
         condition: service_started
