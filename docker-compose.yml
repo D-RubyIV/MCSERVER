@@ -18,6 +18,7 @@ services:
       dockerfile: unmined-cli/Dockerfile
     volumes:
       - mc-bedrock-data-1:/data
+      - minimap:/minimap
     depends_on:
       minecraft-bedrock-server:
         condition: service_healthy
