@@ -1,6 +1,6 @@
 services:
   minecraft-bedrock-server:
-    image: itzg/minecraft-bedrock-server
+    image: itzg/minecraft-bedrock-server:2025.7.0
     environment:
       EULA: "TRUE"
       VERSION: '1.21.95.1'
