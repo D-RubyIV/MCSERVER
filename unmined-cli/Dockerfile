@@ -10,11 +10,11 @@ RUN wget -O unmined-cli.tar.gz "https://unmined.net/download/unmined-cli-linux-x
 
 ENTRYPOINT bash -c 'mkdir -p /tmp/minimap; while true; do \
   echo "[uNmINeD] Starting render at $(date)"; \
-  ./unmined-cli_0.19.49-dev_linux-x64/unmined-cli web render --zoomin=-3 --players \
+  ./unmined-cli_0.19.49-dev_linux-x64/unmined-cli web render --zoomin=-2 --players \
     --world="/data/worlds/Bedrock level" \
     --output="/tmp/minimap"; \
   echo "[uNmINeD] Copying to /minimap..."; \
   rm -rf /minimap/* && cp -r /tmp/minimap/* /minimap/; \
-  echo "[uNmINeD] Waiting 10 seconds..."; \
-  sleep 10; \
+  echo "[uNmINeD] Waiting 50 seconds..."; \
+  sleep 50; \
 done'
