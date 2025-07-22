@@ -11,7 +11,7 @@ RUN wget -O unmined-cli.tar.gz "https://unmined.net/download/unmined-cli-linux-x
 ENTRYPOINT bash -c 'mkdir -p /tmp/minimap; while true; do \
   echo "[uNmINeD] Starting render at $(date)"; \
   ./unmined-cli_0.19.49-dev_linux-x64/unmined-cli web render \
-    --world="/worlds/Bedrock level" \
+    --world="/data/worlds/Bedrock level" \
     --output="/tmp/minimap"; \
   echo "[uNmINeD] Copying to /minimap..."; \
   rm -rf /minimap/* && cp -r /tmp/minimap/* /minimap/; \
