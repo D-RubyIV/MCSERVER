@@ -35,6 +35,12 @@ services:
         condition: service_started
       minecraft-bedrock-server:
         condition: service_healthy
+    networks:
+      - microservices-net
 
+networks:
+  microservices-net:
+    driver: bridge
+      
 volumes:
   mc-bedrock-data:
