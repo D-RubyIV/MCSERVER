@@ -23,6 +23,7 @@ services:
         condition: service_healthy
 
   mini-map-server:
+    container_name: ms_minimap
     build:
       context: .
       dockerfile: http-server/Dockerfile
@@ -41,6 +42,6 @@ services:
 networks:
   microservices-net:
     driver: bridge
-      
+
 volumes:
   mc-bedrock-data:
