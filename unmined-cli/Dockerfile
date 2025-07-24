@@ -15,6 +15,6 @@ ENTRYPOINT bash -c 'mkdir -p /tmp/minimap; while true; do \
     --output="/tmp/minimap"; \
   echo "[uNmINeD] Copying to /minimap..."; \
   rm -rf /minimap/* && cp -r /tmp/minimap/* /minimap/; \
-  echo "[uNmINeD] Waiting 50 seconds..."; \
-  sleep 50; \
+  echo "[uNmINeD] Waiting 3600 seconds..."; \
+  sleep 3600; \
 done'
